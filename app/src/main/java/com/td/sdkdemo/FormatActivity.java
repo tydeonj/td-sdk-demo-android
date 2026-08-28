@@ -195,18 +195,27 @@ public class FormatActivity extends AppCompatActivity {
         }
         Activity act = this;
         String scene = "demo_scene";
-        if (reward != null) reward.showAd(act, scene);
-        else if (interstitial != null) interstitial.showAd(act, scene);
+        if (reward != null) {
+            reward.entryAdScenario(scene);
+            reward.showAd(act, scene);
+        } else if (interstitial != null) {
+            interstitial.entryAdScenario(scene);
+            interstitial.showAd(act, scene);
+        }
         else if (splash != null) {
             ViewGroup box = showContainer();
+            splash.entryAdScenario(scene);
             box.post(() -> {
                 splash.showAd(act, box, scene);
                 if (box.getChildCount() == 0) hideSplashOverlay();
             });
         }
-        else if (banner != null) banner.showAd(act, container, scene);
-        else if (nativeAd != null) {
+        else if (banner != null) {
+            banner.entryAdScenario(scene);
+            banner.showAd(act, container, scene);
+        } else if (nativeAd != null) {
             assembleNativeIfNeeded(lastNativeInfo);
+            nativeAd.entryAdScenario(scene);
             nativeAd.showAd(act, container, scene);
         }
     }
