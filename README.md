@@ -6,7 +6,7 @@ iOS Demo：https://github.com/tydeonj/td-sdk-demo-ios
 
 三步速查：[接入指南.md](接入指南.md)
 
-本 Demo **开 R8**，TD 用 Maven Central 坐标 `com.tyedo:*:1.1.2.7`。不要 `project()` 源码，也不要本地 `m2repo`。
+本 Demo **开 R8**，TD 用 Maven Central 坐标 `com.tyedo:*:1.1.2.8`。不要 `project()` 源码，也不要本地 `m2repo`。
 
 ```bash
 ./gradlew :app:assembleDebug --refresh-dependencies

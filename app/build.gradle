@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 def tdGroup = (findProperty('TD_GROUP_ID') ?: 'com.tyedo').toString()
-def tdVer = (findProperty('TD_VERSION') ?: '1.1.2.7').toString()
+def tdVer = (findProperty('TD_VERSION') ?: '1.1.2.8').toString()
 
 android {
     namespace 'com.td.sdkdemo'

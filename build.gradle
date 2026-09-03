@@ -12,7 +12,7 @@ buildscript {
 ext {
     tdPublishMode = 0
     TD_GROUP_ID = (findProperty('TD_GROUP_ID') ?: 'com.tyedo').toString()
-    TD_VERSION = (findProperty('TD_VERSION') ?: '1.1.2.7').toString()
+    TD_VERSION = (findProperty('TD_VERSION') ?: '1.1.2.8').toString()
 }
 
 allprojects {
