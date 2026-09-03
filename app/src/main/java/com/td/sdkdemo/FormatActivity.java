@@ -1,18 +1,12 @@
 package com.td.sdkdemo;
 
 import android.app.Activity;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.io.InputStream;
-import java.net.URL;
 import androidx.appcompat.app.AppCompatActivity;
 import com.td.ads.base.adapter.TDNativeMaterial;
 import com.td.ads.base.adapter.TDRenderType;
@@ -253,7 +247,7 @@ public class FormatActivity extends AppCompatActivity {
         }
         if (TYPE_NATIVE.equals(type)) {
             container.setVisibility(android.view.View.VISIBLE);
-            setContainerHeightDp(280);
+            setContainerHeightDp(360);
             return;
         }
         container.setVisibility(android.view.View.GONE);
@@ -369,74 +363,11 @@ public class FormatActivity extends AppCompatActivity {
     }
 
     private void assembleNativeIfNeeded(TDAdInfo info) {
-        if (info == null || info.renderType != TDRenderType.SELF_RENDER) {
-            return;
+        if (DemoNativeAssemble.assemble(this, container, info)) {
+            TDNativeMaterial m = info == null ? null : info.nativeMaterial;
+            log("assembled self_render title=" + (m == null ? "" : m.title)
+                    + " img=" + (m == null || m.imageUrl == null ? "" : m.imageUrl));
         }
-        TDNativeMaterial m = info.nativeMaterial;
-        container.removeAllViews();
-        LinearLayout root = new LinearLayout(this);
-        root.setOrientation(LinearLayout.VERTICAL);
-        root.setPadding(24, 16, 24, 16);
-        TextView title = new TextView(this);
-        title.setText(m == null || m.title == null ? "" : m.title);
-        title.setTextSize(16f);
-        title.setClickable(true);
-        title.setTag(TDNativeMaterial.TAG_TITLE);
-        TextView desc = new TextView(this);
-        desc.setText(m == null || m.desc == null ? "" : m.desc);
-        desc.setTextSize(13f);
-        desc.setClickable(true);
-        desc.setTag(TDNativeMaterial.TAG_DESC);
-        TextView cta = new TextView(this);
-        cta.setText(m == null || m.cta == null || m.cta.length() == 0 ? "查看详情" : m.cta);
-        cta.setTextSize(14f);
-        cta.setClickable(true);
-        cta.setTag(TDNativeMaterial.TAG_CTA);
-        root.addView(title);
-        root.addView(desc);
-        root.addView(cta);
-        if (m != null && m.imageUrl != null && m.imageUrl.length() > 0) {
-            ImageView img = new ImageView(this);
-            img.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            img.setClickable(true);
-            img.setTag(TDNativeMaterial.TAG_IMAGE);
-            bindRemoteImage(img, m.imageUrl);
-            root.addView(img, new LinearLayout.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    (int) (120 * getResources().getDisplayMetrics().density)));
-        }
-        container.addView(root, new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        log("assembled self_render title=" + (m == null ? "" : m.title)
-                + " img=" + (m == null || m.imageUrl == null ? "" : m.imageUrl));
-    }
-
-    private static void bindRemoteImage(final ImageView img, final String url) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                InputStream in = null;
-                try {
-                    in = new URL(url).openStream();
-                    final Bitmap bm = BitmapFactory.decodeStream(in);
-                    if (bm == null) return;
-                    img.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            img.setImageBitmap(bm);
-                        }
-                    });
-                } catch (Throwable ignore) {
-                } finally {
-                    if (in != null) {
-                        try {
-                            in.close();
-                        } catch (Throwable ignore) {
-                        }
-                    }
-                }
-            }
-        }).start();
     }
 
     @Override protected void onDestroy() {

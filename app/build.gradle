@@ -53,7 +53,7 @@ dependencies {
     implementation "${tdGroup}:td-ads-sdk:${tdVer}"
     // JinDai（按需）
     implementation "${tdGroup}:jdsdk_ads:${tdVer}"
-    implementation files('libs/JDSDK-3.80.9.aar')
+    implementation files('libs/YDSDK-release.aar')
     // AdGain（按需）
     implementation "${tdGroup}:adgain_ads:${tdVer}"
     implementation 'com.adgain:adgain-sdk:4.1.5'
