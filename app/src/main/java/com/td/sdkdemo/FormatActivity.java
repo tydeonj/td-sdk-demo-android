@@ -201,10 +201,7 @@ public class FormatActivity extends AppCompatActivity {
         else if (splash != null) {
             ViewGroup box = showContainer();
             splash.entryAdScenario(scene);
-            box.post(() -> {
-                splash.showAd(act, box, scene);
-                if (box.getChildCount() == 0) hideSplashOverlay();
-            });
+            box.post(() -> splash.showAd(act, box, scene));
         }
         else if (banner != null) {
             banner.entryAdScenario(scene);
@@ -238,7 +235,12 @@ public class FormatActivity extends AppCompatActivity {
 
     private void applyContainerForType() {
         hideSplashOverlay();
-        if (TYPE_SPLASH.equals(type)) {
+        android.view.View hint = findViewById(R.id.tv_splash_hint);
+        android.view.View preview = findViewById(R.id.splash_preview);
+        boolean splash = TYPE_SPLASH.equals(type);
+        if (hint != null) hint.setVisibility(splash ? android.view.View.VISIBLE : android.view.View.GONE);
+        if (preview != null) preview.setVisibility(splash ? android.view.View.VISIBLE : android.view.View.GONE);
+        if (splash) {
             container.setVisibility(android.view.View.GONE);
             return;
         }

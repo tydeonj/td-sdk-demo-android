@@ -67,6 +67,64 @@
                 android:text="isReady" />
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/tv_splash_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="开屏两段：上方广告区，下方白色底部条（logo / 应用名）"
+            android:textColor="@color/td_sub"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/splash_preview"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:layout_marginTop="8dp"
+            android:background="#FF222222"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="#FFEEEEEE">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="开屏广告区"
+                    android:textColor="@color/td_sub"
+                    android:textSize="14sp" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="#FFFFFFFF"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TD Ads"
+                    android:textColor="#FF222222"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="开屏底部区域"
+                    android:textColor="#FF666666"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
         <FrameLayout
             android:id="@+id/ad_container"
             android:layout_width="match_parent"
