@@ -91,12 +91,44 @@
         </ScrollView>
     </LinearLayout>
 
-    <FrameLayout
+    <LinearLayout
         android:id="@+id/splash_overlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FF000000"
         android:clickable="true"
         android:focusable="true"
-        android:visibility="invisible" />
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <FrameLayout
+            android:id="@+id/splash_ad_area"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:id="@+id/splash_bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#FFFFFFFF"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TD Ads"
+                android:textColor="#FF222222"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="开屏底部区域"
+                android:textColor="#FF666666"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
 </FrameLayout>

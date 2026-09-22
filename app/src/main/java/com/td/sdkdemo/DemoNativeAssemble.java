@@ -88,6 +88,16 @@ final class DemoNativeAssemble {
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         badgeLp.leftMargin = dp(ctx, 6);
         titleRow.addView(badge, badgeLp);
+        TextView close = new TextView(ctx);
+        close.setText("✕");
+        close.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f);
+        close.setTextColor(Color.parseColor("#737373"));
+        close.setGravity(Gravity.CENTER);
+        close.setClickable(true);
+        close.setTag(TDNativeMaterial.TAG_CLOSE);
+        LinearLayout.LayoutParams closeLp = new LinearLayout.LayoutParams(dp(ctx, 22), dp(ctx, 22));
+        closeLp.leftMargin = dp(ctx, 6);
+        titleRow.addView(close, closeLp);
         texts.addView(titleRow, new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 

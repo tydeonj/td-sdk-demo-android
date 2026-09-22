@@ -42,7 +42,8 @@ public class FormatActivity extends AppCompatActivity {
     private EditText etFloor;
     private TextView tvLog;
     private FrameLayout container;
-    private FrameLayout splashOverlay;
+    private ViewGroup splashOverlay;
+    private FrameLayout splashAdArea;
 
     private TDReward reward;
     private TDInterstitial interstitial;
@@ -66,6 +67,7 @@ public class FormatActivity extends AppCompatActivity {
         tvLog = findViewById(R.id.tv_log);
         container = findViewById(R.id.ad_container);
         splashOverlay = findViewById(R.id.splash_overlay);
+        splashAdArea = findViewById(R.id.splash_ad_area);
         applyContainerForType();
 
         findViewById(R.id.btn_load).setOnClickListener(v -> doLoad());
@@ -262,12 +264,12 @@ public class FormatActivity extends AppCompatActivity {
 
     private ViewGroup showContainer() {
         splashOverlay.setVisibility(android.view.View.VISIBLE);
-        return splashOverlay;
+        return splashAdArea != null ? splashAdArea : splashOverlay;
     }
 
     private void hideSplashOverlay() {
         if (splashOverlay == null) return;
-        splashOverlay.removeAllViews();
+        if (splashAdArea != null) splashAdArea.removeAllViews();
         splashOverlay.setVisibility(android.view.View.INVISIBLE);
     }
 
