@@ -12,7 +12,7 @@ buildscript {
 ext {
     tdPublishMode = 0
     TD_GROUP_ID = (findProperty('TD_GROUP_ID') ?: 'com.tyedo').toString()
-    TD_VERSION = (findProperty('TD_VERSION') ?: '1.1.2.8').toString()
+    TD_VERSION = (findProperty('TD_VERSION') ?: '1.1.2.10').toString()
 }
 
 allprojects {
@@ -20,15 +20,6 @@ allprojects {
         google()
         mavenCentral()
         // 以下仅 Demo 已接广告源 / OAID 使用，接入工程按需保留
-        // AdGain
-        maven {
-            url 'http://nexus.datads.cn/repository/maven-releases'
-            allowInsecureProtocol = true
-            credentials {
-                username = 'maven-reader'
-                password = 'maven-reader'
-            }
-        }
         // LiteMob
         maven { url 'https://hub.litemob.com/api/v4/projects/2/packages/maven' }
         // OAID（可选，不是广告源）
