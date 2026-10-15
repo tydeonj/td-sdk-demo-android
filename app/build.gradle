@@ -55,7 +55,7 @@ dependencies {
     implementation "${tdGroup}:jdsdk_ads:${tdVer}"
     implementation files('libs/YDSDK-release.aar')
     // AdGain（按需）。官方 SDK 用随 Demo 附带的 4.2.8，不走私有仓。
-    implementation "${tdGroup}:adgain_ads:${tdVer}"
+    implementation "${tdGroup}:adgain_ads:1.1.2.12"
     implementation files('libs/adgain-sdk-4.2.8.aar')
     // LiteMob（按需）
     implementation "${tdGroup}:ltmb_ads:${tdVer}"
