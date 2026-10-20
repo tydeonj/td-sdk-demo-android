@@ -51,14 +51,14 @@ dependencies {
     println("[tdsdkdemo] implementation ${tdGroup}:*:${tdVer} (mavenCentral)")
     implementation "${tdGroup}:td-ads-base:${tdVer}"
     implementation "${tdGroup}:td-ads-sdk:${tdVer}"
-    // JinDai（按需）
-    implementation "${tdGroup}:jdsdk_ads:${tdVer}"
+    // JinDai（按需）。桥是 1.1.2.12，核心仍用 tdVer
+    implementation "${tdGroup}:jdsdk_ads:1.1.2.12"
     implementation files('libs/YDSDK-release.aar')
-    // AdGain（按需）。官方 SDK 用随 Demo 附带的 4.2.8，不走私有仓。
-    implementation "${tdGroup}:adgain_ads:1.1.2.12"
+    // AdGain（按需）。官方 SDK 用随 Demo 附带的 4.2.8，不走私有仓。桥是 1.1.2.13
+    implementation "${tdGroup}:adgain_ads:1.1.2.13"
     implementation files('libs/adgain-sdk-4.2.8.aar')
-    // LiteMob（按需）
-    implementation "${tdGroup}:ltmb_ads:${tdVer}"
+    // LiteMob（按需）。桥是 1.1.2.12，核心仍用 tdVer
+    implementation "${tdGroup}:ltmb_ads:1.1.2.12"
     implementation 'com.ltmb.ltsdk:core:2.9.5'
     // LiteMob 官方要求的支持库
     implementation 'com.github.bumptech.glide:glide:4.13.0'
