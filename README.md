@@ -6,7 +6,7 @@ iOS Demo：https://github.com/tydeonj/td-sdk-demo-ios
 
 三步速查：[接入指南.md](接入指南.md)
 
-本 Demo **开 R8**，TD 核心用 Maven Central 坐标 `com.tyedo:*:1.1.2.11`；JinDai / LiteMob 桥 `1.1.2.12`，AdGain 桥 `1.1.2.13`。不要 `project()` 源码，也不要本地 `m2repo`。
+本 Demo **开 R8**。核心 `com.tyedo:td-ads-base` / `td-ads-sdk` 为 `1.1.2.11`，JinDai 桥为 `1.1.2.12`，AdGain 与 LiteMob 桥为 `1.1.2.14`。不要 `project()` 源码，也不要本地 `m2repo`。
 
 ```bash
 ./gradlew :app:assembleDebug --refresh-dependencies

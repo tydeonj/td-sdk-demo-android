@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 
 def tdGroup = (findProperty('TD_GROUP_ID') ?: 'com.tyedo').toString()
 def tdVer = (findProperty('TD_VERSION') ?: '1.1.2.11').toString()
+def tdAdapterVer = '1.1.2.14'
 
 android {
     namespace 'com.td.sdkdemo'
@@ -54,12 +55,12 @@ dependencies {
     // JinDai（按需）。桥是 1.1.2.12，核心仍用 tdVer
     implementation "${tdGroup}:jdsdk_ads:1.1.2.12"
     implementation files('libs/YDSDK-release.aar')
-    // AdGain（按需）。官方 SDK 用随 Demo 附带的 4.2.8，不走私有仓。桥是 1.1.2.13
-    implementation "${tdGroup}:adgain_ads:1.1.2.13"
+    // AdGain（按需）。官方 SDK 用随 Demo 附带的 4.2.8，不走私有仓。桥是 1.1.2.14
+    implementation "${tdGroup}:adgain_ads:${tdAdapterVer}"
     implementation files('libs/adgain-sdk-4.2.8.aar')
-    // LiteMob（按需）。桥是 1.1.2.12，核心仍用 tdVer
-    implementation "${tdGroup}:ltmb_ads:1.1.2.12"
-    implementation 'com.ltmb.ltsdk:core:2.9.5'
+    // LiteMob（按需）。桥是 1.1.2.14，核心仍用 tdVer
+    implementation "${tdGroup}:ltmb_ads:${tdAdapterVer}"
+    implementation 'com.ltmb.ltsdk:core:3.6.5'
     // LiteMob 官方要求的支持库
     implementation 'com.github.bumptech.glide:glide:4.13.0'
     implementation 'com.google.code.gson:gson:2.8.6'
